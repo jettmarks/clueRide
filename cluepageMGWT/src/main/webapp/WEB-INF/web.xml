@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  
+<servlet>
+  <servlet-name>revealLevelServiceImpl</servlet-name>
+  <servlet-class>com.jettmarks.clue.server.service.RevealLevelServiceImpl</servlet-class>
+</servlet>
+ <servlet>
+  <servlet-name>rSSProxyImpl</servlet-name>
+  <servlet-class>com.jettmarks.clue.server.service.RSSProxyImpl</servlet-class>
+ </servlet>
+<servlet>
+  <servlet-name>sessionManagerImpl</servlet-name>
+  <servlet-class>com.jettmarks.clue.server.service.SessionManagerImpl</servlet-class>
+</servlet>
+ 
+<servlet-mapping>
+  <servlet-name>revealLevelServiceImpl</servlet-name>
+  <url-pattern>/cluepageMGWT/reveal</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+  <servlet-name>sessionManagerImpl</servlet-name>
+  <url-pattern>/cluepageMGWT/SessionManager</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+  <servlet-name>rSSProxyImpl</servlet-name>
+  <url-pattern>/cluepageMGWT/proxy</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>rSSProxyImpl</servlet-name>
+  <url-pattern>/cluepageMGWT//proxy</url-pattern>
+</servlet-mapping>
+
+ 
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

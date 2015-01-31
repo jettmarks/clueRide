@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0.3//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.0.3/distro-source/core/src/gwt-module.dtd">
+<module rename-to="cluepageMGWT">
+
+  
+
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.activity.Activity" />
+	<inherits name="com.googlecode.mgwt.MGWTMin"/>
+	<!--  <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG"/> -->
+	
+	<!-- uncomment this if you want to use gwt phonegap -->
+	<!--<inherits name="com.googlecode.gwtphonegap.PhoneGap"/>-->
+	
+	<!-- set the user agent to safari -> only webkit -->
+	<!-- <set-property name="user.agent" value="safari" /> -->
+	
+	<!--  here you can set mgwt.os to a specific platform -->
+	<!-- <set-property name="mgwt.os" value="android" /> -->
+	
+	<!-- here you can turn off css obfuscation -->
+	<set-configuration-property name="mgwt.css" value="pretty" /> 
+	<set-configuration-property name="CssResource.style" value="pretty" /> 
+	<!-- 
+	<set-property name="ClientBundle.enableInlining" value="false" /> 
+	--> 
+	
+	<!-- Remote Services -->
+    <servlet class="com.jettmarks.clue.server.service.RevealLevelServiceImpl" path="/reveal"/>   
+
+	<entry-point class="com.jettmarks.clue.client.MgwtAppEntryPoint" />
+	
+	<source path="client"/>
+</module>

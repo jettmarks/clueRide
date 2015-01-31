@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jettmarks.clue</groupId>
+	<artifactId>cluepageMGWT</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Archetype generated mgwt app</name>
+
+	<properties>
+		<gwtversion>2.5.1</gwtversion>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+					<buildOutputDirectory>target/${project.artifactId}-${project.version}/WEB-INF/classes</buildOutputDirectory>
+					<projectnatures>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+						<projectnature>com.google.gdt.eclipse.core.webAppNature</projectnature>
+
+						<nature>com.google.gwt.eclipse.core.gwtNature</nature>
+					</projectnatures>
+					<buildcommands>
+						<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
+						<buildcommand>com.google.gdt.eclipse.core.webAppProjectValidator</buildcommand>
+
+						<buildcommand>com.google.appengine.eclipse.core.projectValidator</buildcommand>
+						<buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
+					</buildcommands>
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+
+						<classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
+					</classpathContainers>
+					<excludes>
+						<exclude>com.google.gwt:gwt-servlet</exclude>
+						<exclude>com.google.gwt:gwt-user</exclude>
+						<exclude>com.google.gwt:gwt-dev</exclude>
+						<exclude>javax.validation:validation-api</exclude>
+					</excludes>
+
+
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<executions>
+
+					<execution>
+						<configuration>
+							<runTarget>index.html</runTarget>
+							<copyWebapp>true</copyWebapp>
+							<servicePattern>**/service/*.java</servicePattern>
+						</configuration>
+						<id>compile gwt</id>
+						<goals>
+							<goal>compile</goal>
+							<goal>generateAsync</goal>
+						</goals>
+					</execution>
+
+				</executions>
+
+				<configuration>
+					<runTarget>index.html</runTarget>
+				</configuration>
+			</plugin>
+			<!-- suggested to be removed when you get an error for finding the clientcode.xml 
+				referenced below <plugin> <artifactId>maven-assembly-plugin</artifactId> 
+				<executions> <execution> <id>assemble</id> <phase>package</phase> <goals> 
+				<goal>single</goal> </goals> </execution> </executions> <configuration> <descriptors> 
+				<descriptor>src/main/assembly/clientcode.xml</descriptor> </descriptors> 
+				</configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat6-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<url>${tomcat.manager.url}</url>
+					<server>${tomcat.server}</server>
+					<path>/${project.artifactId}-${project.version}</path>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<url>${tomcat.manager.url}</url>
+					<server>${tomcat.server}</server>
+					<path>/${project.artifactId}-${project.version}</path>
+				</configuration>
+			</plugin>
+			<!-- Maintain build number -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<format>
+						{0,number}@{1,date,yyyy/MM/dd HH:mm:ss}
+					</format>
+					<items>
+						<item>buildNumber0</item>
+						<item>timestamp</item>
+					</items>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/client/**</include>
+					<include>**/*.gwt.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											gwt-maven-plugin
+										</artifactId>
+										<versionRange>
+											[2.5.0,)
+										</versionRange>
+										<goals>
+											<goal>generateAsync</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<!-- For embedding version information into JAR/WAR -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.1.1</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>
+									true
+								</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Implementation-Build>
+									${buildNumber}
+								</Implementation-Build>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.jettmarks.fw</groupId>
+			<artifactId>fw</artifactId>
+			<version>1.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- mgwt dependency -->
+		<dependency>
+			<groupId>com.googlecode.mgwt</groupId>
+			<artifactId>mgwt</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<!-- gwtphonegap dependency -->
+		<dependency>
+			<groupId>com.googlecode.gwtphonegap</groupId>
+			<artifactId>gwtphonegap</artifactId>
+			<version>2.0.0.0</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwtversion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-dev</artifactId>
+			<version>${gwtversion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.allen-sauer.gwt.log</groupId>
+			<artifactId>gwt-log</artifactId>
+			<version>3.1.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwtversion}</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+
+
+
+</project>

@@ -1,0 +1,96 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style>
+		/* Add CSS here. See the GWT docs on UI Binder for more details */
+		.centeredImage {
+			position: relative; /* allows repositioning */
+			left: 100%; /* move the whole width of the image to the right */
+			margin-left: -200%; /* magic! */
+			max-height: 100%;
+		}
+		
+		.node1Title {
+			position: absolute;
+			top: 43px;
+			left: -345px;
+			color: White;
+			font-size: larger;
+		}
+		
+		.node1Text {
+			position: absolute;
+			top: 75px;
+			left: -355px;
+			color: White;
+			font-size: larger;
+		}
+		
+		.node2Title {
+			position: absolute;
+			top: 100px;
+			left: -110px;
+			color: White;
+			font-size: larger;
+		}
+		
+		.node2Text {
+			position: absolute;
+			top: 131px;
+			left: -123px;
+			color: White;
+			font-size: larger;
+		}
+		
+		.node3Title {
+			position: absolute;
+			top: 322px;
+			left: -228px;
+			color: White;
+			font-size: larger;
+		}
+		
+		.node3Text {
+			position: absolute;
+			top: 53px;
+			left: 63px;
+			color: White;
+			font-size: larger;
+		}
+		
+		.nodeImage {
+			position: relative;
+		}
+		
+		.GI1CSH4LU-com-jettmarks-clue-client-nav-home-HomeUIBinder_HomeUIBinderUiBinderImpl_designTime1394585625981_GenCss_style-node1Title
+			{
+			
+		}
+	</ui:style>
+
+	<!-- <g:HTMLPanel styleName="{style.centeredImage}" > -->
+	<g:HTMLPanel>
+		<span style="position: relative;">
+			<g:Image width="400" height="400" url="img/logo_blank.png"
+				altText="no image?" styleName="{style.nodeImage}" />
+			<span style="position: absolute; top: 3px left: 3px;">
+				<g:Label text="Course:" width="0%" height="0%"
+					styleName="{style.node1Title}" />
+				<g:Label text="course selection" width="83px" height="65px"
+					styleName="{style.node1Text}" />
+				<g:Label text="Group:" width="0%" height="0%"
+					styleName="{style.node2Title}" />
+				<g:Label text="group selection" width="79px" height="65px"
+					styleName="{style.node2Text}" />
+				<g:Label text="Play" width="0%" height="0%" styleName="{style.node3Title}" />
+			</span>
+		</span>
+
+		<!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete 
+			widget names. The ui:field attribute binds an element to a field in the owner 
+			class. See the GWT docs on UI Binder for more details. <g:Image source="/img/loco_blank.png" 
+			> </g:Image> -->
+	</g:HTMLPanel>
+
+</ui:UiBinder>
