@@ -12,7 +12,7 @@
     <panel_attributes>PointOfInterest
 --
 Node
-Optional&lt;List&lt;Clue&gt;&gt;
+Optional&lt;ClueSet&gt;
 Optional&lt;POIGroup&gt;
 
 </panel_attributes>
@@ -24,7 +24,7 @@ Optional&lt;POIGroup&gt;
       <x>80</x>
       <y>80</y>
       <w>220</w>
-      <h>130</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Course
 --
@@ -83,8 +83,8 @@ FacilityType facilityType
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>0</y>
+      <x>660</x>
+      <y>40</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -94,8 +94,8 @@ FacilityType facilityType
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
-      <y>0</y>
+      <x>800</x>
+      <y>40</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
